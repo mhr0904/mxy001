@@ -21,12 +21,6 @@
       "boundary": "部分动态仍带“查看更多”边界，未逐条进入详情页；低价值生活、情绪和泛娱乐内容已过滤。"
     },
     {
-      "platform": "微博",
-      "status": "已试读，候选较少",
-      "collection_method": "读取微博首页的全部关注/最新微博区域，滚动采集约 35 屏；过滤热搜、你可能感兴趣、广告和泛娱乐内容。",
-      "boundary": "微博页面混入推荐和公共内容，已尽量只保留关注账号或关注流可见内容；详情链接未稳定取得。"
-    },
-    {
       "platform": "知识星球",
       "status": "已试读，按星球巡检",
       "collection_method": "逐个点击 8 个加入的星球首屏：黑貔貅投资笔记、趋势小程序、谈谈移民那些事、起朱楼宴宾客、步枫的桃花源、解忧杂货铺、人生要选对、人生是滚雪球的朋友们。",
@@ -86,7 +80,11 @@
       "author": "Olivert / 宝玉转发",
       "published_at": "2026-05-20T16:23:00+08:00",
       "original_url": "https://x.com/indiehackercase/status/2057014212577386655",
-      "topic_category": ["AI 工具", "编程学习", "职业发展"],
+      "topic_category": [
+        "AI 工具",
+        "编程学习",
+        "职业发展"
+      ],
       "confidence": "高",
       "fully_read": "是",
       "excerpt": "作者引用《经济学人》调查称，ChatGPT 问世后，美国计算机相关专业毕业生全职就业率从 2015 年约 70%-75% 降至 2025 年约 55%，几乎接近全部毕业生平均水平，讨论焦点是 AI 先替代初级岗位。",
@@ -101,7 +99,11 @@
       "author": "dodo-reach / Teknium 转发",
       "published_at": "2026-05-20T20:45:00+08:00",
       "original_url": "https://x.com/DODOREACH/status/2057080233698673073",
-      "topic_category": ["Hermes", "AI Agent", "开发工具"],
+      "topic_category": [
+        "Hermes",
+        "AI Agent",
+        "开发工具"
+      ],
       "confidence": "高",
       "fully_read": "是",
       "excerpt": "作者称 Hermes Agent 的 TUI 体验已明显改善，Hermes Desktop v0.9.0 不是伪聊天 UI，而是通过 SSH 打开 Hermes、管理 agent 工作的更安全入口；后续补充了公开 GitHub 仓库链接。",
@@ -116,7 +118,11 @@
       "author": "宝玉",
       "published_at": "2026-05-20",
       "original_url": "https://x.com/dotey/status/2056862526239908047",
-      "topic_category": ["Codex", "AI 工具", "产品设计"],
+      "topic_category": [
+        "Codex",
+        "AI 工具",
+        "产品设计"
+      ],
       "confidence": "中",
       "fully_read": "否",
       "excerpt": "宝玉评论 Google Antigravity 2.0 与 Codex 长得很像，认为 Google 如果愿意借鉴更好的 UI/UX 也不是坏事，至少可能避免 Gemini UI 的难用问题。",
@@ -131,7 +137,11 @@
       "author": "向阳乔木",
       "published_at": "2026-05-20T23:48:00+08:00",
       "original_url": "https://x.com/vista8/status/2057124658927812758",
-      "topic_category": ["Codex", "AI 工具", "插件"],
+      "topic_category": [
+        "Codex",
+        "AI 工具",
+        "插件"
+      ],
       "confidence": "中",
       "fully_read": "否",
       "excerpt": "作者提到一个增强 Codex App 的项目，可在 API 登录 Codex 的情况下安装插件、使用 Computer Use、添加 Goal 指令，还能调整界面为类似 Chrome 顶部 Tab，并设置任务开始/完成声音提醒。",
@@ -146,7 +156,11 @@
       "author": "宏观边际 MacroMargin",
       "published_at": "2026-05-20T23:48:00+08:00",
       "original_url": "https://x.com/MacroMargin/status/2057116297335640431",
-      "topic_category": ["宏观", "金融投资框架", "能源"],
+      "topic_category": [
+        "宏观",
+        "金融投资框架",
+        "能源"
+      ],
       "confidence": "低",
       "fully_read": "否",
       "excerpt": "作者提到布油上行后又出现油价利空消息，阿拉伯电视台称美伊协议文本进入最后润色阶段。该条更像市场线索，可能影响油价、通胀和利率预期。",
@@ -161,7 +175,11 @@
       "author": "云中江树",
       "published_at": "2026-05-20",
       "original_url": "",
-      "topic_category": ["AI 工具", "组织协作", "编程学习"],
+      "topic_category": [
+        "AI 工具",
+        "组织协作",
+        "编程学习"
+      ],
       "confidence": "高",
       "fully_read": "否",
       "excerpt": "作者认为 AI 让传统分工链条里的沟通磨损变得更刺眼：与其反复给人对齐需求、等待执行、再返工，不如直接和 AI 对齐并拿结果。未来更重要的是能对完整事情负责、能闭环的人。",
@@ -176,7 +194,11 @@
       "author": "艾逗笔",
       "published_at": "2026-05-20",
       "original_url": "",
-      "topic_category": ["OpenClaw", "AI Agent", "产品架构"],
+      "topic_category": [
+        "OpenClaw",
+        "AI Agent",
+        "产品架构"
+      ],
       "confidence": "高",
       "fully_read": "否",
       "excerpt": "FastClaw 被描述为 Agent 工厂：个人助理、云端创作、团队版 Agent、Agent Infra 四类场景。架构上以 admin -> builder -> agent -> chatter 四层实体组织，每个 agent-chatter 组合有独立记忆。",
@@ -191,7 +213,11 @@
       "author": "AGENT橘",
       "published_at": "2026-05-20",
       "original_url": "",
-      "topic_category": ["AI 工具", "效率工具", "Codex"],
+      "topic_category": [
+        "AI 工具",
+        "效率工具",
+        "Codex"
+      ],
       "confidence": "中",
       "fully_read": "否",
       "excerpt": "作者认为豆包语音输入法的亮点不是单独转录，而是能和键盘输入联动：例如 ColaOS、Codex 这类专有词，第一次手动修正后会被输入法记住，后续语音输入不再频繁错写。",
@@ -206,7 +232,11 @@
       "author": "有知有行",
       "published_at": "2026-05-20",
       "original_url": "",
-      "topic_category": ["长期投资", "财富管理", "资产配置"],
+      "topic_category": [
+        "长期投资",
+        "财富管理",
+        "资产配置"
+      ],
       "confidence": "中",
       "fully_read": "否",
       "excerpt": "长钱账户在 520 进行再平衡调仓：经历 3 月回撤后，A 股尤其科技成长风格反弹，账户部分卖出高估区域的全指信息，相应换仓买入债券基金。",
@@ -221,7 +251,11 @@
       "author": "Alchian 花生",
       "published_at": "2026-05-20",
       "original_url": "",
-      "topic_category": ["AI 工具", "Skill", "方法论"],
+      "topic_category": [
+        "AI 工具",
+        "Skill",
+        "方法论"
+      ],
       "confidence": "中",
       "fully_read": "否",
       "excerpt": "作者称开源项目“女娲.skill”Star 数突破 20000，估计整体安装量超过 20 万，并认为它成了很多人提炼自己和名人思维模型的起点。",
@@ -236,7 +270,11 @@
       "author": "阑夕",
       "published_at": "2026-05-20",
       "original_url": "",
-      "topic_category": ["AI 公司", "法律风险", "强立场需判断"],
+      "topic_category": [
+        "AI 公司",
+        "法律风险",
+        "强立场需判断"
+      ],
       "confidence": "中",
       "fully_read": "否",
       "excerpt": "作者梳理马斯克起诉 OpenAI 败诉的证词与叙事：核心看法是马斯克很难证明 OpenAI 被系统性欺骗或“掉包”，且其提起诉讼时间过晚、报复动机明显。",
@@ -251,7 +289,11 @@
       "author": "Szhans",
       "published_at": "2026-05-20",
       "original_url": "",
-      "topic_category": ["AI 公司", "高质量作者", "行业动态"],
+      "topic_category": [
+        "AI 公司",
+        "高质量作者",
+        "行业动态"
+      ],
       "confidence": "低",
       "fully_read": "否",
       "excerpt": "作者称 Andrej Karpathy 加入 Anthropic，并称其为 AI 教育家加入增长最快模型公司。该条信息短，但可能是值得核验的行业人事变化线索。",
@@ -260,58 +302,17 @@
       "may_need_open_original": "是"
     },
     {
-      "id": "weibo-20260520-001",
-      "title": "Google I/O 后 Gemini 3.5 Flash 价格与体感能力测试",
-      "source_platform": "微博",
-      "author": "karminski-牙医",
-      "published_at": "2026-05-20T06:23:00+08:00",
-      "original_url": "",
-      "topic_category": ["AI 工具", "模型评测", "开发工具"],
-      "confidence": "中",
-      "fully_read": "否",
-      "excerpt": "作者称 Google I/O 开场发布 Gemini 3.5 Flash 并全量上线，价格从 Gemini 3 Flash 每百万 Token 输入/输出 $0.50/$3 上涨到 $1.5/$9；其简单测试体感位于 Gemini 3.0 Pro 与 Gemini 3.1 Pro 之间。",
-      "codex_screening_reason": "和模型选择、成本评估有关，但只读到微博预览和部分展开文本，具体测试样例需打开原文或视频再看。",
-      "recommend_chatgpt_second_pass": "是",
-      "may_need_open_original": "是"
-    },
-    {
-      "id": "weibo-20260520-002",
-      "title": "黄金回落的多重利空解释",
-      "source_platform": "微博",
-      "author": "小六忠诚",
-      "published_at": "2026-05-20",
-      "original_url": "",
-      "topic_category": ["长期投资", "宏观", "黄金"],
-      "confidence": "低",
-      "fully_read": "否",
-      "excerpt": "作者围绕“黄金下跌原因”讨论近期国际黄金大幅回落，认为不是短期情绪波动，而是多重利空叠加、市场交易逻辑变化，包括地缘、油价、美元/利率等变量。",
-      "codex_screening_reason": "与黄金和宏观框架相关，但微博页面显示为“荐读/关注”混合来源，未完整展开，适合作为低置信候选。",
-      "recommend_chatgpt_second_pass": "是",
-      "may_need_open_original": "是"
-    },
-    {
-      "id": "weibo-20260520-003",
-      "title": "人生三件事：选择路线、踏上征程、承担后果",
-      "source_platform": "微博",
-      "author": "tombkeeper",
-      "published_at": "2026-05-20T11:58:00+08:00",
-      "original_url": "",
-      "topic_category": ["方法论", "职业发展"],
-      "confidence": "中",
-      "fully_read": "是",
-      "excerpt": "作者转发旧文用于高考语境：人生其实只有三件事，选择路线、踏上征程、承担后果。可以不选择，也可以不行动，但承担后果躲不掉。",
-      "codex_screening_reason": "短内容但方法论表达清晰，可作为行动提醒；信息增量不高，不建议占用太多注意力。",
-      "recommend_chatgpt_second_pass": "否",
-      "may_need_open_original": "否"
-    },
-    {
       "id": "zsxq-20260520-001",
       "title": "趋势小程序：温转热、危险信号与仓位处理讨论",
       "source_platform": "知识星球",
       "author": "趋势小程序 / NickNie 等",
       "published_at": "2026-05-20",
       "original_url": "https://wx.zsxq.com/group/88885185558542",
-      "topic_category": ["金融投资框架", "趋势交易", "工具反馈"],
+      "topic_category": [
+        "金融投资框架",
+        "趋势交易",
+        "工具反馈"
+      ],
       "confidence": "中",
       "fully_read": "否",
       "excerpt": "星球内多条 5 月 20 日讨论集中在仓位满时如何处理“温转热”、刚买入后出现危险信号是否止损、收藏夹逻辑和历史新高 bug。NickNie 对“危险信号”回复倾向于等下次温转热再买。",
@@ -326,7 +327,11 @@
       "author": "Vintu / 大卫翁星球",
       "published_at": "2026-05-20T08:54:00+08:00",
       "original_url": "https://wx.zsxq.com/group/28851128141241",
-      "topic_category": ["资产配置", "长期投资", "财富管理"],
+      "topic_category": [
+        "资产配置",
+        "长期投资",
+        "财富管理"
+      ],
       "confidence": "中",
       "fully_read": "否",
       "excerpt": "用户原本让 AI 生成“十五五规划”权益资产行业配置框架，后来想用宽基 ETF 代替；金融资产约 400 万，权益约 30% 偏新能源和红利，70% 类现金，等待指数回调分批配置。",
@@ -341,7 +346,11 @@
       "author": "老钱",
       "published_at": "2026-05-20T13:06:00+08:00",
       "original_url": "https://wx.zsxq.com/group/222588821821",
-      "topic_category": ["美股", "AI 投资", "金融投资框架"],
+      "topic_category": [
+        "美股",
+        "AI 投资",
+        "金融投资框架"
+      ],
       "confidence": "中",
       "fully_read": "否",
       "excerpt": "老钱分析美股“版本之子”Leopold Aschenbrenner 的历史持仓和最近持仓，并附投资备忘录和 13F 表格包。评论提醒其高换手对散户参考价值可能有限。",
@@ -356,7 +365,11 @@
       "author": "大卫翁",
       "published_at": "2026-05-20T04:25:00+08:00",
       "original_url": "https://wx.zsxq.com/group/28851128141241",
-      "topic_category": ["资产配置", "长期投资", "读书笔记"],
+      "topic_category": [
+        "资产配置",
+        "长期投资",
+        "读书笔记"
+      ],
       "confidence": "中",
       "fully_read": "否",
       "excerpt": "大卫翁创建《资产配置行动指南》读者提问作业入口，供读者在阅读过程中提交问题或疑惑；强调最好不要直接摆出个人配置让其判断是否合适。",
@@ -371,7 +384,11 @@
       "author": "好朋友的播客 / 中泰证券资管",
       "published_at": "2026-05-20T10:53:34+08:00",
       "original_url": "https://www.xiaoyuzhoufm.com/episode/6a0d1fb1e1eb34a939bc0e51",
-      "topic_category": ["银行职业发展", "财富管理", "金融投资框架"],
+      "topic_category": [
+        "银行职业发展",
+        "财富管理",
+        "金融投资框架"
+      ],
       "confidence": "高",
       "fully_read": "否",
       "excerpt": "本期 47 分 50 秒，围绕低利率时代银行净息差、存款搬家、负债端成本、实业投资回报率下降、银行赚钱机制和隔夜拆借利率异常等问题展开，嘉宾为中泰资管基金经理冷雪源。",
