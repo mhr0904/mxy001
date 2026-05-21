@@ -3,9 +3,9 @@
   "runs": [
     {
       "target_date": "2026-05-20",
-      "generated_at": "2026-05-21T08:40:00+08:00",
-      "status": "template_with_sample_data",
-      "candidate_count": 6,
+      "generated_at": "2026-05-21T14:00:01+08:00",
+      "status": "real_trial_partial_read",
+      "candidate_count": 20,
       "source_platforms": [
         "X",
         "即刻",
@@ -14,7 +14,7 @@
         "小宇宙",
         "公众号"
       ],
-      "notes": "正式结构模板和示例数据。每日自动化运行后应追加真实运行记录。"
+      "notes": "手动试跑统一候选池。X、即刻、微博、知识星球、小宇宙已有候选；公众号无手动材料。"
     }
   ]
 }
