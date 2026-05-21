@@ -28,6 +28,20 @@
         "公众号"
       ],
       "notes": "本轮真实执行但受环境限制：无法接管已登录 Chrome，shell 外网不可达，小宇宙订阅脚本 26/26 源全部联网失败，公众号本地导出器因 127.0.0.1:3000 监听被 EPERM 拒绝而无法启动，因此不生成伪候选。"
+    },
+    {
+      "target_date": "2026-05-21",
+      "generated_at": "2026-05-22T07:34:19+08:00",
+      "status": "blocked_environment_no_candidate_reconfirmed",
+      "candidate_count": 0,
+      "source_platforms": [
+        "X",
+        "即刻",
+        "知识星球",
+        "小宇宙",
+        "公众号"
+      ],
+      "notes": "复跑确认环境边界未解除：Chrome 无法被辅助功能接管，浏览器自动化既不能附着现有 Chrome 也不能拉起可用系统 Chrome，外网 fetch 失败；小宇宙 26/26 源 DNS 失败；公众号导出器启动即报 listen EPERM 127.0.0.1:3000，manual_inbox 为空。"
     }
   ]
 }

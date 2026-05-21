@@ -3,39 +3,39 @@
   "title": "米小鱼每日信息候选池",
   "run_status": "blocked_environment_no_candidate",
   "target_date": "2026-05-21",
-  "generated_at": "2026-05-22T00:16:15+08:00",
+  "generated_at": "2026-05-22T07:34:19+08:00",
   "timezone": "Asia/Shanghai",
   "review_instruction": "请 ChatGPT 判断哪些值得读、哪些只需要知道结论、哪些可以跳过。",
-  "data_note": "本轮以 2026-05-21 为目标日期执行统一候选池采集，但当前运行环境同时受限于三类边界：1）无法接管已登录 Chrome，因此不能安全读取 X Following、即刻关注流和知识星球加入星球详情；2）shell 外网访问受限，小宇宙订阅脚本对 26 个源全部返回 DNS/联网失败；3）本机沙箱禁止监听 127.0.0.1:3000，导致公众号本地导出器无法启动。为避免编造，本轮仅发布真实采集边界，不生成伪候选。",
+  "data_note": "本轮于 2026-05-22 早晨再次以 2026-05-21 为目标日期执行统一候选池采集，结果确认环境边界仍未解除：1）无法接管已登录 Chrome，且浏览器自动化既无法附着现有会话，也无法成功拉起可用的系统 Chrome，因此不能安全读取 X Following、即刻关注流和知识星球加入星球详情；2）外网读取失败，小宇宙订阅脚本对 26 个源全部返回 DNS/联网失败；3）本机沙箱禁止监听 127.0.0.1:3000，导致公众号本地导出器无法启动，manual_inbox 也没有用户手动投递文章。为避免编造，本轮仅发布真实采集边界，不生成伪候选。",
   "source_status": [
     {
       "platform": "X",
       "status": "未完成读取，无法进入 Following 时间线",
-      "collection_method": "尝试使用桌面级 Chrome 控制读取已登录关注流，但 `computer-use` 会话被系统拒绝；随后尝试公开网页与搜索引擎补读，只能打开未登录的公开资料页外壳，无法稳定读取 Following 时间线、线程展开、图片和外链上下文。",
+      "collection_method": "先尝试用桌面级 Chrome 控制读取已登录 Following，但 `computer-use` 对 `com.google.Chrome` 返回 approval denied；随后尝试用浏览器自动化附着或拉起 Chrome，发现 `DevToolsActivePort` 仅残留 `9222` 文件而本地端口不可连，`puppeteer` 也无法成功拉起系统 Chrome；当前环境 `fetch` 外网同样失败，因此不能真实展开 thread、quote、图片和外链。",
       "boundary": "不读取或导出 Cookie、localStorage、账号密码；在缺少登录态页面控制的情况下，不把公开搜索结果误当作 Following 候选。"
     },
     {
       "platform": "即刻",
       "status": "未完成读取，无法进入关注流",
-      "collection_method": "尝试以公开网页和搜索引擎补读即刻内容，但当前环境无法复用已登录会话，也没有稳定的公开关注流入口；因此无法按要求区分关注流、推荐流、详情展开与评论补充。",
+      "collection_method": "当前既无法接管已登录 Chrome，也无法通过自动化建立可用浏览器会话；在这种前提下，无法进入即刻关注流，也无法可靠展开详情、全文、图片、链接卡片和评论补充，因此不能按要求区分关注流与推荐流。",
       "boundary": "不绕过登录限制，不把搜索命中或零散公开页伪装成关注流结果。"
     },
     {
       "platform": "知识星球",
       "status": "未完成读取，无法逐个巡检加入星球",
-      "collection_method": "当前环境无法接管已登录浏览器，知识星球又以登录后内容为主，因此无法按要求逐个星球读取 2026-05-21 动态、图片正文、评论问答和详情页。",
+      "collection_method": "知识星球以登录后内容为主；当前既无法接管已登录浏览器，也无法通过自动化建立可用页面会话，因此不能按要求逐个星球读取 2026-05-21 动态、图片正文、评论问答、附件和详情页。",
       "boundary": "不读取或发布付费/私密社区全文，不尝试绕过登录、验证码或权限边界。"
     },
     {
       "platform": "小宇宙",
       "status": "脚本已运行，但当前环境无外网",
-      "collection_method": "按要求优先运行 `/Users/cyc/.codex/automations/automation-4/check_xiaoyuzhou_updates.py`，并将输出目录重定向到仓库临时目录；脚本成功遍历 26 个订阅源（23 个 RSS、3 个公开页 fallback），但全部返回 DNS/联网失败，因此无法判断 2026-05-21 是否有新节目。",
+      "collection_method": "按要求优先运行 `/Users/cyc/.codex/automations/automation-4/check_xiaoyuzhou_updates.py --date 2026-05-21 --timezone Asia/Shanghai --output-dir /private/tmp/mxy001-xiaoyuzhou-2026-05-21`；脚本成功遍历 26 个订阅源（23 个 RSS、3 个公开页 fallback），但全部返回 `<urlopen error [Errno 8] nodename nor servname provided, or not known>`，因此无法判断 2026-05-21 是否有新节目。",
       "boundary": "只使用公开简介、shownotes、章节等元数据；在网络不可达时不编造更新结果。"
     },
     {
       "platform": "公众号",
       "status": "本地导出器无法启动，manual_inbox 为空",
-      "collection_method": "按要求尝试启动 `/Users/cyc/Applications/wechat-article-exporter/start-local.sh`，直接前台运行 `node .output/server/index.mjs` 时返回 `listen EPERM 127.0.0.1:3000`，说明当前沙箱不允许本机监听该端口；仓库 `manual_inbox/` 只有模板，没有用户手动提供的文章。",
+      "collection_method": "按要求前台运行 `/Users/cyc/Applications/wechat-article-exporter/start-local.sh`，立即报 `listen EPERM: operation not permitted 127.0.0.1:3000`；随后确认 `http://127.0.0.1:3000/dashboard/account` 不可连接。仓库 `manual_inbox/` 只有模板，没有用户手动提供的文章。",
       "boundary": "不读取或导出 Cookie、localStorage、账号密码、公众号全文；在本地服务无法启动且没有手动收件时，不随机抓取全网公众号。"
     }
   ],
