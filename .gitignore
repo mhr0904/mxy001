@@ -1,0 +1,9 @@
+private/
+raw/
+tmp/
+*.cookies
+*.har
+*.session
+*.local.json
+*.private.md
+__pycache__/

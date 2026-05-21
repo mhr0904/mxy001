@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "runs": [
+    {
+      "target_date": "2026-05-20",
+      "generated_at": "2026-05-21T08:40:00+08:00",
+      "status": "template_with_sample_data",
+      "candidate_count": 6,
+      "source_platforms": [
+        "X",
+        "即刻",
+        "微博",
+        "知识星球",
+        "小宇宙",
+        "公众号"
+      ],
+      "notes": "正式结构模板和示例数据。每日自动化运行后应追加真实运行记录。"
+    }
+  ]
+}

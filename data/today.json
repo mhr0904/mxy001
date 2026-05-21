@@ -1,0 +1,196 @@
+{
+  "version": 1,
+  "title": "米小鱼每日信息候选池",
+  "run_status": "template_with_sample_data",
+  "target_date": "2026-05-20",
+  "generated_at": "2026-05-21T08:40:00+08:00",
+  "timezone": "Asia/Shanghai",
+  "review_instruction": "请 ChatGPT 判断哪些值得读、哪些只需要知道结论、哪些可以跳过。",
+  "data_note": "当前为正式结构模板和示例数据。每日自动化运行后，应替换为真实候选信息；无法读取的信源必须保留状态说明，不能编造。",
+  "source_status": [
+    {
+      "platform": "X",
+      "status": "示例待替换",
+      "collection_method": "使用已登录 Chrome 读取 Following 时间线；完整展开长帖、thread、图片、引用链和原链接后再入池。",
+      "boundary": "不读取或导出 Cookie、localStorage、密码、账号设置。"
+    },
+    {
+      "platform": "即刻",
+      "status": "示例待替换",
+      "collection_method": "读取关注流和关注圈子动态；只保留关注对象产生或明确转发评论的内容。",
+      "boundary": "不把推荐、热门、广告当作关注流。"
+    },
+    {
+      "platform": "微博",
+      "status": "示例待替换",
+      "collection_method": "读取关注流和可见关注分组；进入全文、长图、转发链和详情页确认上下文。",
+      "boundary": "不读取公共热搜、全站热门、推荐账号。"
+    },
+    {
+      "platform": "知识星球",
+      "status": "示例待替换",
+      "collection_method": "逐个巡检加入的星球；按星球读取昨日可见动态、图片正文、附件和详情页。",
+      "boundary": "不发布付费或私密社区全文，只发布 300 字以内摘录和初筛理由。"
+    },
+    {
+      "platform": "小宇宙",
+      "status": "示例待替换",
+      "collection_method": "优先使用已建立订阅基线、RSS 和公开节目页元数据，列出更新候选；只有用户指定后再深听。",
+      "boundary": "第一层只用公开简介、shownotes、章节、音频链接等元数据。"
+    },
+    {
+      "platform": "公众号",
+      "status": "手动接入",
+      "collection_method": "用户手动提供公众号文章链接、标题、作者、少量摘录或复制内容后整理入池。",
+      "boundary": "不绕过微信登录、验证码、反爬或平台限制；不把公众号全文放到公开网页。"
+    }
+  ],
+  "filtering_rules": {
+    "drop_by_default": [
+      "情绪宣泄",
+      "热点争吵",
+      "炫耀贴",
+      "标题党",
+      "重复观点",
+      "无行动价值的信息",
+      "与当前主线无关的信息"
+    ],
+    "prioritize": [
+      "AI 工具",
+      "Codex",
+      "Hermes",
+      "OpenClaw",
+      "Cursor",
+      "编程学习",
+      "银行职业发展",
+      "财富管理",
+      "金融投资框架",
+      "监管政策",
+      "长期投资",
+      "高质量作者",
+      "重要播客内容",
+      "值得沉淀的方法论"
+    ]
+  },
+  "safety_boundaries": [
+    "不要放 Cookie、账号密码、客户信息、个人隐私。",
+    "不要放付费内容全文、私密社区全文、公众号全文。",
+    "不要绕过登录限制、验证码、反爬或做大规模违规爬取。",
+    "未完整读取的候选必须标注为未完整读取和较低置信度。"
+  ],
+  "candidates": [
+    {
+      "id": "sample-x-001",
+      "title": "示例：Codex 自动化工作流复盘线索",
+      "source_platform": "X",
+      "author": "示例 X 作者",
+      "published_at": "2026-05-20T10:20:00+08:00",
+      "original_url": "",
+      "topic_category": [
+        "AI 工具",
+        "Codex",
+        "自动化"
+      ],
+      "confidence": "中",
+      "fully_read": "否",
+      "excerpt": "示例摘录：作者讨论把多平台信息流统一为候选池，再让模型做二次判断，重点不是看更多内容，而是减少反复打开社区 App 的次数。",
+      "codex_screening_reason": "与当前系统建设强相关，但示例数据没有真实原帖链接，正式运行时需要打开原文或 thread 完整读取。",
+      "recommend_chatgpt_second_pass": "是",
+      "may_need_open_original": "是"
+    },
+    {
+      "id": "sample-jike-001",
+      "title": "示例：把信息消费改成候选池，而不是刷流",
+      "source_platform": "即刻",
+      "author": "示例即刻用户",
+      "published_at": "2026-05-20T12:05:00+08:00",
+      "original_url": "",
+      "topic_category": [
+        "信息筛选",
+        "方法论"
+      ],
+      "confidence": "中",
+      "fully_read": "否",
+      "excerpt": "示例摘录：动态强调先建立候选池，再按目标、作者可信度和行动价值过滤内容，避免被即时反馈和争论牵着走。",
+      "codex_screening_reason": "符合减少刷社区 App 的目标，可能沉淀为每日回顾的筛选规则。",
+      "recommend_chatgpt_second_pass": "是",
+      "may_need_open_original": "否"
+    },
+    {
+      "id": "sample-weibo-001",
+      "title": "示例：银行从业者的 AI 办公实践",
+      "source_platform": "微博",
+      "author": "示例微博关注账号",
+      "published_at": "2026-05-20T15:40:00+08:00",
+      "original_url": "",
+      "topic_category": [
+        "AI 工具",
+        "银行职业发展",
+        "效率工具"
+      ],
+      "confidence": "中",
+      "fully_read": "否",
+      "excerpt": "示例摘录：作者分享如何用 AI 辅助整理会议纪要、政策条文和客户问题清单，但强调敏感数据不能直接输入外部工具。",
+      "codex_screening_reason": "和银行职业发展、AI 办公强相关；正式数据需要确认原帖是否有具体工具、流程和合规边界。",
+      "recommend_chatgpt_second_pass": "是",
+      "may_need_open_original": "是"
+    },
+    {
+      "id": "sample-zsxq-001",
+      "title": "示例：长期投资框架与监管变量",
+      "source_platform": "知识星球",
+      "author": "示例星球作者",
+      "published_at": "2026-05-20T20:10:00+08:00",
+      "original_url": "",
+      "topic_category": [
+        "长期投资",
+        "监管政策",
+        "金融投资框架"
+      ],
+      "confidence": "低",
+      "fully_read": "否",
+      "excerpt": "示例摘录：内容提到长期资产配置不应只看短期价格，还要把政策周期、行业现金流和估值分位放进同一个判断框架。",
+      "codex_screening_reason": "主题高度相关，但知识星球内容可能是私密或付费内容，公开页只能保留短摘录和判断理由。",
+      "recommend_chatgpt_second_pass": "是",
+      "may_need_open_original": "是"
+    },
+    {
+      "id": "sample-xiaoyuzhou-001",
+      "title": "示例：重要播客更新候选",
+      "source_platform": "小宇宙",
+      "author": "示例订阅节目",
+      "published_at": "2026-05-20T07:30:00+08:00",
+      "original_url": "",
+      "topic_category": [
+        "重要播客内容",
+        "财富管理",
+        "方法论"
+      ],
+      "confidence": "中",
+      "fully_read": "否",
+      "excerpt": "示例摘录：节目简介显示本期围绕个人财富决策、风险承受能力和长期规划展开。第一层只根据公开简介判断是否值得深听。",
+      "codex_screening_reason": "适合进入候选池等待用户点名深听；未转写音频前不能给出确定结论。",
+      "recommend_chatgpt_second_pass": "是",
+      "may_need_open_original": "是"
+    },
+    {
+      "id": "sample-wechat-001",
+      "title": "示例：用户手动提供的公众号文章",
+      "source_platform": "公众号",
+      "author": "示例公众号作者",
+      "published_at": "2026-05-20T09:00:00+08:00",
+      "original_url": "",
+      "topic_category": [
+        "公众号",
+        "编程学习",
+        "AI 工具"
+      ],
+      "confidence": "低",
+      "fully_read": "否",
+      "excerpt": "示例摘录：这里只保留用户手动提供文章后的 300 字以内摘录，不保存公众号全文，不绕过微信平台限制。",
+      "codex_screening_reason": "公众号作为新增信源，先走手动入口；正式入池时需要用户提供链接或文本。",
+      "recommend_chatgpt_second_pass": "是",
+      "may_need_open_original": "是"
+    }
+  ]
+}
