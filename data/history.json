@@ -42,6 +42,20 @@
         "公众号"
       ],
       "notes": "复跑确认环境边界未解除：Chrome 无法被辅助功能接管，浏览器自动化既不能附着现有 Chrome 也不能拉起可用系统 Chrome，外网 fetch 失败；小宇宙 26/26 源 DNS 失败；公众号导出器启动即报 listen EPERM 127.0.0.1:3000，manual_inbox 为空。"
+    },
+    {
+      "target_date": "2026-05-21",
+      "generated_at": "2026-05-22T20:39:33+08:00",
+      "status": "real_collection_partial_with_candidates",
+      "candidate_count": 25,
+      "source_platforms": [
+        "X",
+        "即刻",
+        "知识星球",
+        "小宇宙",
+        "公众号"
+      ],
+      "notes": "晚间补跑成功读取 X Following、即刻关注流和知识星球加入星球，生成 25 条候选；小宇宙 shell DNS 失败，公众号本地导出器仍无法监听 127.0.0.1:3000。"
     }
   ]
 }

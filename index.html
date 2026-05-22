@@ -41,20 +41,443 @@
 <body>
   <h1>米小鱼每日信息候选池</h1>
   <p><strong>请 ChatGPT 判断哪些值得读、哪些只需要知道结论、哪些可以跳过。</strong></p>
-  <p class="meta">目标日期：2026-05-21；生成时间：2026-05-22T07:34:19+08:00；时区：Asia/Shanghai</p>
-  <p>本轮于 2026-05-22 早晨再次以 2026-05-21 为目标日期执行统一候选池采集，结果确认环境边界仍未解除：1）无法接管已登录 Chrome，且浏览器自动化既无法附着现有会话，也无法成功拉起可用的系统 Chrome，因此不能安全读取 X Following、即刻关注流和知识星球加入星球详情；2）外网读取失败，小宇宙订阅脚本对 26 个源全部返回 DNS/联网失败；3）本机沙箱禁止监听 127.0.0.1:3000，导致公众号本地导出器无法启动，manual_inbox 也没有用户手动投递文章。为避免编造，本轮仅发布真实采集边界，不生成伪候选。</p>
+  <p class="meta">目标日期：2026-05-21；生成时间：2026-05-22T20:39:33+08:00；时区：Asia/Shanghai</p>
+  <p>本轮按 Asia/Shanghai 的 2026-05-21 采集统一候选池。Chrome 扩展可用，已真实读取 X Following、即刻关注流和知识星球加入星球；X 进入详情页补读了重点候选，即刻多数动态在 Web DOM 中不暴露稳定原帖链接，已在条目中标注；知识星球只保留短摘录和判断理由，不发布私密/付费全文。小宇宙基线脚本因当前 shell DNS 失败，26 个订阅源全部不可读；公众号本地导出器仍因 EPERM 无法监听 127.0.0.1:3000，manual_inbox 仅有模板。</p>
 
   <h2>信源状态</h2>
   <ul>
-      <li><strong>X</strong>：未完成读取，无法进入 Following 时间线。先尝试用桌面级 Chrome 控制读取已登录 Following，但 `computer-use` 对 `com.google.Chrome` 返回 approval denied；随后尝试用浏览器自动化附着或拉起 Chrome，发现 `DevToolsActivePort` 仅残留 `9222` 文件而本地端口不可连，`puppeteer` 也无法成功拉起系统 Chrome；当前环境 `fetch` 外网同样失败，因此不能真实展开 thread、quote、图片和外链。 边界：不读取或导出 Cookie、localStorage、账号密码；在缺少登录态页面控制的情况下，不把公开搜索结果误当作 Following 候选。</li>
-      <li><strong>即刻</strong>：未完成读取，无法进入关注流。当前既无法接管已登录 Chrome，也无法通过自动化建立可用浏览器会话；在这种前提下，无法进入即刻关注流，也无法可靠展开详情、全文、图片、链接卡片和评论补充，因此不能按要求区分关注流与推荐流。 边界：不绕过登录限制，不把搜索命中或零散公开页伪装成关注流结果。</li>
-      <li><strong>知识星球</strong>：未完成读取，无法逐个巡检加入星球。知识星球以登录后内容为主；当前既无法接管已登录浏览器，也无法通过自动化建立可用页面会话，因此不能按要求逐个星球读取 2026-05-21 动态、图片正文、评论问答、附件和详情页。 边界：不读取或发布付费/私密社区全文，不尝试绕过登录、验证码或权限边界。</li>
-      <li><strong>小宇宙</strong>：脚本已运行，但当前环境无外网。按要求优先运行 `/Users/cyc/.codex/automations/automation-4/check_xiaoyuzhou_updates.py --date 2026-05-21 --timezone Asia/Shanghai --output-dir /private/tmp/mxy001-xiaoyuzhou-2026-05-21`；脚本成功遍历 26 个订阅源（23 个 RSS、3 个公开页 fallback），但全部返回 `&lt;urlopen error [Errno 8] nodename nor servname provided, or not known&gt;`，因此无法判断 2026-05-21 是否有新节目。 边界：只使用公开简介、shownotes、章节等元数据；在网络不可达时不编造更新结果。</li>
-      <li><strong>公众号</strong>：本地导出器无法启动，manual_inbox 为空。按要求前台运行 `/Users/cyc/Applications/wechat-article-exporter/start-local.sh`，立即报 `listen EPERM: operation not permitted 127.0.0.1:3000`；随后确认 `http://127.0.0.1:3000/dashboard/account` 不可连接。仓库 `manual_inbox/` 只有模板，没有用户手动提供的文章。 边界：不读取或导出 Cookie、localStorage、账号密码、公众号全文；在本地服务无法启动且没有手动收件时，不随机抓取全网公众号。</li>
+      <li><strong>X</strong>：已读取 Following，生成候选。通过已登录 Chrome 读取 X 主页的“正在关注”时间线，未使用 For You、Explore、Trends、推荐账号或广告。滚动采集 127 条可见动态，其中 44 条转换为 Asia/Shanghai 后属于 2026-05-21；对 14 条高相关候选进入详情页读取主帖、引用、评论补充、链接卡片或外部 GitHub/OpenAI 页面。部分长文或图片未完全展开时在候选中标注未完整读取。 边界：不读取或导出 Cookie、localStorage、账号密码；不把广告和 Explore 重定向内容当作候选。</li>
+      <li><strong>即刻</strong>：已读取关注流，生成候选。通过已登录 Chrome 读取 https://web.okjike.com/following，只使用关注流。滚动回溯到 1 天前和更早内容，筛出 2026-05-21 相对时间段内的 AI、产品、投资和方法论候选。Web DOM 对多数动态未暴露稳定 originalPosts 链接，因此原始链接以关注流或可见外链表示，并标注可能需要用户打开原文。 边界：不读取推荐/发现流，不绕过登录限制；对未能取得稳定详情页的动态标注未完整读取或中等置信度。</li>
+      <li><strong>知识星球</strong>：已逐个巡检加入星球，生成候选。逐个打开 8 个可见已加入星球：黑貔貅投资笔记、趋势小程序、谈谈移民那些事、起朱楼宴宾客、步枫的桃花源、解忧杂货铺、人生要选对、人生是滚雪球的朋友们。记录每个星球是否有 2026-05-21 可见内容；候选集中在黄金/利率、A 股趋势信号、C-REITs、滚雪球精选阅读。 边界：不发布付费/私密全文，只保留短摘录、主题判断和是否需要打开原文。</li>
+      <li><strong>小宇宙</strong>：基线脚本已运行，但当前 shell 网络不可达。按要求运行 `/Users/cyc/.codex/automations/automation-4/check_xiaoyuzhou_updates.py --date 2026-05-21 --timezone Asia/Shanghai --output-dir /private/tmp/mxy001-xiaoyuzhou-2026-05-21-run3`。脚本遍历 26 个订阅源（23 个 RSS、3 个公开页 fallback），全部返回 `&lt;urlopen error [Errno 8] nodename nor servname provided, or not known&gt;`，因此无法可靠判断目标日期是否有更新。 边界：只整理公开元数据；脚本全失败时不编造播客更新。</li>
+      <li><strong>公众号</strong>：本地导出器无法启动，manual_inbox 无新增文章。确认 127.0.0.1:3000 未监听；运行 `/Users/cyc/Applications/wechat-article-exporter/start-local.sh` 仍报 `listen EPERM: operation not permitted 127.0.0.1:3000`。`manual_inbox/` 只有模板文件，没有用户手动提供的公众号文章。 边界：不读取或导出 Cookie、localStorage、账号密码、公众号全文；在本地服务无法启动且无手动收件时，不随机抓取全网公众号。</li>
   </ul>
 
   <h2>候选信息</h2>
+  <article>
+    <h2>1. Codex Steer 与 Queue 的使用边界</h2>
+    <ul>
+      <li>来源平台：X</li>
+      <li>作者：宝玉 @dotey</li>
+      <li>发布时间：2026-05-21 07:02 Asia/Shanghai</li>
+      <li>原始链接：<a href="https://x.com/dotey/status/2057235477623939482">https://x.com/dotey/status/2057235477623939482</a></li>
+      <li>主题分类：Codex / AI 编程工作流</li>
+      <li>置信度：高</li>
+      <li>是否完整读取：是</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：否</li>
+    </ul>
+    <p><strong>摘录：</strong>作者解释 Codex 长任务中新增指令的两种方式：Steer 用于中途改变当前任务方向，Queue 用于把后续任务排队执行；评论补充更正了 Mac 上 Steer 的快捷键是 Command + Enter。</p>
+    <p><strong>Codex 初筛理由：</strong>这是直接改善 Codex 使用效率的操作性信息，尤其适合长时间任务、睡前队列、任务中途纠偏。已读到详情页和勘误，值得 ChatGPT 二次判断是否沉淀成自己的 Codex 操作规范。</p>
+  </article>
 
+  <article>
+    <h2>2. Codex iOS 端新增推送、/fork 和更好的 diff</h2>
+    <ul>
+      <li>来源平台：X</li>
+      <li>作者：宝玉 @dotey</li>
+      <li>发布时间：2026-05-21 22:25 Asia/Shanghai</li>
+      <li>原始链接：<a href="https://x.com/dotey/status/2057467744124109151">https://x.com/dotey/status/2057467744124109151</a></li>
+      <li>主题分类：Codex / 移动端更新</li>
+      <li>置信度：高</li>
+      <li>是否完整读取：是</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：否</li>
+    </ul>
+    <p><strong>摘录：</strong>作者转述 Codex in ChatGPT iOS 更新：任务轮次完成推送、断线重连 UI、紧凑对话界面、新 /fork 命令、diff 可打开完整文件等。评论里有人质疑“turn completion”的中文翻译，作者解释 Turn 可译为轮次。</p>
+    <p><strong>Codex 初筛理由：</strong>对移动端监控长任务很实用，和用户长期使用 Codex 的场景高度相关。信息偏功能更新，适合知道结论并决定是否更新客户端，不一定需要深读评论。</p>
+  </article>
+
+  <article>
+    <h2>3. 学术论文 Skill 仓库热度快速上升</h2>
+    <ul>
+      <li>来源平台：X</li>
+      <li>作者：向阳乔木 @vista8</li>
+      <li>发布时间：2026-05-21 11:54 Asia/Shanghai</li>
+      <li>原始链接：<a href="https://x.com/vista8/status/2057309148493336751">https://x.com/vista8/status/2057309148493336751</a></li>
+      <li>主题分类：AI Skill / 学术研究</li>
+      <li>置信度：高</li>
+      <li>是否完整读取：是</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：是</li>
+    </ul>
+    <p><strong>摘录：</strong>作者推荐 Imbad0202/academic-research-skills，给出插件安装命令和 GitHub 地址。外链 GitHub 已打开，仓库显示 Academic Research Skills for Claude Code，包含 research、write、review、revise、finalize 等模块，星标约 18.8k。</p>
+    <p><strong>Codex 初筛理由：</strong>这是技能生态中的高热度仓库，和本地 skill/插件使用主线相关。评论区也有质量质疑，说明不应盲装；建议 ChatGPT 评估其是否值得试用、是否能移植到 Codex。</p>
+  </article>
+
+  <article>
+    <h2>4. 用 GitHub 做 AI Native 知识协作底座</h2>
+    <ul>
+      <li>来源平台：X</li>
+      <li>作者：Dash @DashHuang</li>
+      <li>发布时间：2026-05-21 12:50 Asia/Shanghai</li>
+      <li>原始链接：<a href="https://x.com/DashHuang/status/2057323152758480955">https://x.com/DashHuang/status/2057323152758480955</a></li>
+      <li>主题分类：知识管理 / AI Agent 协作</li>
+      <li>置信度：中</li>
+      <li>是否完整读取：否</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：是</li>
+    </ul>
+    <p><strong>摘录：</strong>作者主张把长期沉淀的工作日志、文档和文章从 Confluence/飞书迁到 GitHub。核心论点是 GitHub 的 branch、commit、PR、review、merge 原本对人有门槛，但在 AI Agent 时代，这些流程可由 Agent 理解和执行，人只需用自然语言表达需求。</p>
+    <p><strong>Codex 初筛理由：</strong>主题很贴近“让 Agent 操作知识基础设施”的长期方向；但 X 长文较长，本轮只读到前半部分，仍需打开原文确认后续论证和落地约束。</p>
+  </article>
+
+  <article>
+    <h2>5. Vibe Coding 社群内容围绕工具订阅、Token、模型和 Hooks</h2>
+    <ul>
+      <li>来源平台：X</li>
+      <li>作者：池建强 @sagacity</li>
+      <li>发布时间：2026-05-21 10:40 Asia/Shanghai</li>
+      <li>原始链接：<a href="https://x.com/sagacity/status/2057290452446187578">https://x.com/sagacity/status/2057290452446187578</a></li>
+      <li>主题分类：Vibe Coding / 社群知识管理</li>
+      <li>置信度：中</li>
+      <li>是否完整读取：否</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：是</li>
+    </ul>
+    <p><strong>摘录：</strong>作者说做了一个 Vibe Coding 计划，群聊质量较高；链接卡片显示 5 月 20 日社群总结覆盖 AI 工具订阅、Token 消耗、模型选择、Claude Code 与 Codex 使用、Hooks 和记忆系统等。</p>
+    <p><strong>Codex 初筛理由：</strong>这可能是一个持续追踪 AI 编程实践材料的入口；本轮只读到 X 主帖和链接卡片，未打开墨问全文，适合先保留为低成本线索。</p>
+  </article>
+
+  <article>
+    <h2>6. 豆包赢下 AI chatbot 后，价值仍难衡量</h2>
+    <ul>
+      <li>来源平台：X</li>
+      <li>作者：Orange AI @oran_ge</li>
+      <li>发布时间：2026-05-21 14:27 Asia/Shanghai</li>
+      <li>原始链接：<a href="https://x.com/oran_ge/status/2057347457814786386">https://x.com/oran_ge/status/2057347457814786386</a></li>
+      <li>主题分类：AI 产品 / 字节豆包</li>
+      <li>置信度：高</li>
+      <li>是否完整读取：是</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：否</li>
+    </ul>
+    <p><strong>摘录：</strong>作者基于晚点报道总结豆包：2024 年曾强调 800 万智能体，但多 bot 活跃度不高；团队下架主智能体以外的智能体后，用户活跃和留存未受影响；曾考虑按用户兴趣主动推荐抖音短视频但未上线。作者认为豆包虽然赢得 chatbot 用户规模，日均时长仍不到 10 分钟。</p>
+    <p><strong>Codex 初筛理由：</strong>这是对国内 AI 超级入口的产品复盘，信息密度高，且同内容在即刻也出现，已按去重保留 X 详情页版本。值得二次判断：豆包的胜利是分发胜利、产品胜利还是商业价值尚未兑现。</p>
+  </article>
+
+  <article>
+    <h2>7. Coding Agent 比泛 Agent 更先站稳</h2>
+    <ul>
+      <li>来源平台：X</li>
+      <li>作者：极客杰尼 @seekjourney</li>
+      <li>发布时间：2026-05-21 14:13 Asia/Shanghai</li>
+      <li>原始链接：<a href="https://x.com/seekjourney/status/2057343984658415657">https://x.com/seekjourney/status/2057343984658415657</a></li>
+      <li>主题分类：Agent 发展判断 / AI 编程</li>
+      <li>置信度：高</li>
+      <li>是否完整读取：是</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：否</li>
+    </ul>
+    <p><strong>摘录：</strong>作者回顾上半年 Agent 热潮：很多人讨论工作流、自动化、专家 Skill 和领域知识蒸馏，但普通人的工作生活还没被大规模改写；反而是 CC / Codex 这类 Coding Agent 已经在模型和 Agent 生态中占据确定位置。</p>
+    <p><strong>Codex 初筛理由：</strong>这是对 Agent 落地节奏的清醒判断，和用户关注 Codex、编程学习、AI 工具选择高度相关。可作为判断“现在该押注哪类 Agent”的材料。</p>
+  </article>
+
+  <article>
+    <h2>8. AI 音乐暴露普通人缺的是判断力、领导力和品味</h2>
+    <ul>
+      <li>来源平台：X</li>
+      <li>作者：极客杰尼 @seekjourney</li>
+      <li>发布时间：2026-05-21 15:23 Asia/Shanghai</li>
+      <li>原始链接：<a href="https://x.com/seekjourney/status/2057361534796566868">https://x.com/seekjourney/status/2057361534796566868</a></li>
+      <li>主题分类：AI 创作 / 方法论</li>
+      <li>置信度：高</li>
+      <li>是否完整读取：是</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：否</li>
+    </ul>
+    <p><strong>摘录：</strong>作者用 Suno 体验说明：AI 能生成结构像样的歌，但常缺少故事感；真正难的是知道自己要什么，能判断 hook、情绪转折、歌词和旋律是否到位，也要摸清工具边界和重抽策略。</p>
+    <p><strong>Codex 初筛理由：</strong>这条不是单纯音乐吐槽，而是把 AI 创作迁移到“人如何做导演”的问题。适合沉淀为使用 AI 工具时的判断框架。</p>
+  </article>
+
+  <article>
+    <h2>9. AI 长文泛滥后，读者更需要人的协作痕迹</h2>
+    <ul>
+      <li>来源平台：X</li>
+      <li>作者：李继刚 @lijigang</li>
+      <li>发布时间：2026-05-21 13:05 Asia/Shanghai</li>
+      <li>原始链接：<a href="https://x.com/lijigang/status/2057326873034797315">https://x.com/lijigang/status/2057326873034797315</a></li>
+      <li>主题分类：AI 写作 / 内容质量</li>
+      <li>置信度：中</li>
+      <li>是否完整读取：否</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：是</li>
+    </ul>
+    <p><strong>摘录：</strong>作者认为 AI 生成面面俱到的长文甚至书很容易，读多后会让人产生抗拒；问题不是拒绝 AI 生产力，而是希望创作者在与 AI 合作时保留更明确的选择、取舍和人的意图。</p>
+    <p><strong>Codex 初筛理由：</strong>这条能帮助判断候选内容是否只是 AI 平铺信息，和本候选池筛选目标一致。主帖较长，本轮未确认是否完全展开，建议二次判断。</p>
+  </article>
+
+  <article>
+    <h2>10. bb-browser 支持远程访问本地浏览器</h2>
+    <ul>
+      <li>来源平台：X</li>
+      <li>作者：yan5xu @yan5xu</li>
+      <li>发布时间：2026-05-21 20:43 Asia/Shanghai</li>
+      <li>原始链接：<a href="https://x.com/yan5xu/status/2057442273647075516">https://x.com/yan5xu/status/2057442273647075516</a></li>
+      <li>主题分类：浏览器自动化 / AI 工具</li>
+      <li>置信度：中</li>
+      <li>是否完整读取：否</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：是</li>
+    </ul>
+    <p><strong>摘录：</strong>作者称 bb-browser 已支持远程访问自己的本地浏览器，后续可以无缝切换到云浏览器；补充说也可以静默启动无头浏览器，不和用户浏览器打架，需要时再远程操控。</p>
+    <p><strong>Codex 初筛理由：</strong>这与 Codex/Browser Use/远程自动化方向相关，但本轮没有读图和项目文档，只能作为工具动向线索保留。</p>
+  </article>
+
+  <article>
+    <h2>11. Hermes Agent 接入电话号码和语音代理</h2>
+    <ul>
+      <li>来源平台：X</li>
+      <li>作者：David Ondrej；Teknium 转帖</li>
+      <li>发布时间：2026-05-21 16:31 Asia/Shanghai</li>
+      <li>原始链接：<a href="https://x.com/DavidOndrej1/status/2057378701491294382">https://x.com/DavidOndrej1/status/2057378701491294382</a></li>
+      <li>主题分类：Hermes / 语音 Agent</li>
+      <li>置信度：中</li>
+      <li>是否完整读取：是</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：是</li>
+    </ul>
+    <p><strong>摘录：</strong>作者发布 31 分钟视频，称给 Hermes Agent 一个真实电话号码会显著增强能力，甚至可主动打电话；后续补充链接指向 Vapi voice agents 和公开视频资源。</p>
+    <p><strong>Codex 初筛理由：</strong>Hermes 是用户关注主题之一，语音/电话是 Agent 从文本走向行动的关键接口。但本轮未看视频，只读到帖文和链接卡片，因此适合列为需要用户或 ChatGPT 决定是否深看的线索。</p>
+  </article>
+
+  <article>
+    <h2>12. Grok 展示从图片生成到 spritesheet 的游戏资产流程</h2>
+    <ul>
+      <li>来源平台：X</li>
+      <li>作者：Grok @grok</li>
+      <li>发布时间：2026-05-21 13:50 Asia/Shanghai</li>
+      <li>原始链接：<a href="https://x.com/grok/status/2057338217566015652">https://x.com/grok/status/2057338217566015652</a></li>
+      <li>主题分类：AI 生成游戏资产 / 图像视频工作流</li>
+      <li>置信度：高</li>
+      <li>是否完整读取：是</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：否</li>
+    </ul>
+    <p><strong>摘录：</strong>Grok 给出流程：先用 Imagine 生成游戏角色图，再用图转视频模型动画化，抽帧转 spritesheet，最后放进游戏引擎；备注说部分流程由自定义 Cursor extension harness 在背后完成。</p>
+    <p><strong>Codex 初筛理由：</strong>这条有明确工作流和工具链结构，对做小游戏、互动素材或视觉资产管线有参考价值。更多是知道结论，不一定需要追踪评论。</p>
+  </article>
+
+  <article>
+    <h2>13. MarkEdit：4MB 级 macOS 原生 Markdown 编辑器</h2>
+    <ul>
+      <li>来源平台：X</li>
+      <li>作者：小弟调调 @jaywcjlove；宝玉转帖</li>
+      <li>发布时间：2026-05-21 11:48 Asia/Shanghai</li>
+      <li>原始链接：<a href="https://x.com/jaywcjlove/status/2057307398273159466">https://x.com/jaywcjlove/status/2057307398273159466</a></li>
+      <li>主题分类：开发工具 / Markdown</li>
+      <li>置信度：高</li>
+      <li>是否完整读取：是</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：是</li>
+    </ul>
+    <p><strong>摘录：</strong>作者推荐 MarkEdit，定位为类似 TextEdit 但专注 Markdown 的 macOS 原生编辑器，强调免费开源、体积小、速度快、可处理超大文档。GitHub 外链已打开，仓库约 4.7k stars。</p>
+    <p><strong>Codex 初筛理由：</strong>这是一个低成本工具候选，可能适合本地 Markdown/候选池编辑工作。价值不如 Codex/Agent 条目高，但工具很具体，值得留给 ChatGPT 判断是否安装试用。</p>
+  </article>
+
+  <article>
+    <h2>14. OpenAI 模型解决 Erdős 平面单位距离猜想</h2>
+    <ul>
+      <li>来源平台：即刻</li>
+      <li>作者：AGENT橘</li>
+      <li>发布时间：2026-05-21（即刻显示 1天前）</li>
+      <li>原始链接：<a href="https://openai.com/index/model-disproves-discrete-geometry-conjecture/">https://openai.com/index/model-disproves-discrete-geometry-conjecture/</a></li>
+      <li>主题分类：AI 研究 / 数学推理</li>
+      <li>置信度：高</li>
+      <li>是否完整读取：是</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：是</li>
+    </ul>
+    <p><strong>摘录：</strong>即刻作者称这是 AI 发展的里程碑：OpenAI 未公布的内部推理模型自主解决 Erdős 1946 年提出的平面单位距离问题。外链 OpenAI 官方页已打开，页面说明该模型给出无限族构造并经外部数学家检查。</p>
+    <p><strong>Codex 初筛理由：</strong>这是 AI 推理能力边界的重要信号，且已打开官方来源确认核心背景。建议 ChatGPT 二次判断其对通用推理模型、数学研究和 Agent 能力的意义。</p>
+  </article>
+
+  <article>
+    <h2>15. 做产品不等于能赚钱，AI 解决的是工程问题不是商业问题</h2>
+    <ul>
+      <li>来源平台：即刻</li>
+      <li>作者：AGENT橘</li>
+      <li>发布时间：2026-05-21（即刻显示 1天前）</li>
+      <li>原始链接：<a href="https://web.okjike.com/following">https://web.okjike.com/following</a></li>
+      <li>主题分类：AI 产品 / 商业化</li>
+      <li>置信度：中</li>
+      <li>是否完整读取：否</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：是</li>
+    </ul>
+    <p><strong>摘录：</strong>作者反驳“有产品=能赚钱”的思维：独立开发者最难的不是开发，而是卖出去；产品只是交付物的一种，做产品是工程问题，赚钱是商业问题，而 AI 目前主要降低工程成本。</p>
+    <p><strong>Codex 初筛理由：</strong>这条能约束 Vibe Coding 过度兴奋，适合用户在做产品/工具时提醒自己验证商业和分发问题。即刻未暴露稳定原帖链接，标注未完整读取。</p>
+  </article>
+
+  <article>
+    <h2>16. AI coding 正变成水电煤：70 岁用户也能做网站</h2>
+    <ul>
+      <li>来源平台：即刻</li>
+      <li>作者：AGENT橘</li>
+      <li>发布时间：2026-05-21（即刻显示 1天前）</li>
+      <li>原始链接：<a href="https://web.okjike.com/following">https://web.okjike.com/following</a></li>
+      <li>主题分类：AI Coding / 普及化</li>
+      <li>置信度：中</li>
+      <li>是否完整读取：否</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：是</li>
+    </ul>
+    <p><strong>摘录：</strong>作者讲线下圆桌遇到 70 岁用户用 ColaOS 为儿童公益组织做网站，代码量到 16 万行；作者由此判断 AI coding 会像水电煤一样普及，生产力放大人的创造意志，不分年龄和行业。</p>
+    <p><strong>Codex 初筛理由：</strong>这是 AI coding 普及化的案例材料，和“普通人如何学 AI”有关。叙述有推广色彩，需要 ChatGPT 二次判断证据强度和可迁移性。</p>
+  </article>
+
+  <article>
+    <h2>17. 执行越廉价，好问题越珍贵</h2>
+    <ul>
+      <li>来源平台：即刻</li>
+      <li>作者：Szhans</li>
+      <li>发布时间：2026-05-21（即刻显示 1天前）</li>
+      <li>原始链接：<a href="https://web.okjike.com/following">https://web.okjike.com/following</a></li>
+      <li>主题分类：Vibe Coding / 产品思考</li>
+      <li>置信度：中</li>
+      <li>是否完整读取：否</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：是</li>
+    </ul>
+    <p><strong>摘录：</strong>作者认为 Vibe Coding 让执行越来越便宜，但也更容易让人跳过对最上层问题的定义；好问题通常是在模糊和试错中涌现，不能被效率幻觉替代。</p>
+    <p><strong>Codex 初筛理由：</strong>这是很好的方法论候选，能和 Codex /goal、产品定义、需求澄清结合起来。即刻原帖未取得稳定链接，建议二次判断后沉淀为原则。</p>
+  </article>
+
+  <article>
+    <h2>18. 韩国总统鼓励散户持有 AI 相关股票的逻辑与风险</h2>
+    <ul>
+      <li>来源平台：即刻</li>
+      <li>作者：董指导</li>
+      <li>发布时间：2026-05-21（即刻显示 1天前）</li>
+      <li>原始链接：<a href="https://web.okjike.com/following">https://web.okjike.com/following</a></li>
+      <li>主题分类：金融投资 / AI 产业政策</li>
+      <li>置信度：中</li>
+      <li>是否完整读取：否</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：是</li>
+    </ul>
+    <p><strong>摘录：</strong>作者分析韩国总统李在明鼓励民众持有 AI 相关股票：逻辑包括 AI 趋势、韩国存储龙头、改善“韩国折价”、把财阀资产转给散户；风险在于炒作过头、存储周期见顶、财阀能否真正让步。</p>
+    <p><strong>Codex 初筛理由：</strong>这条兼具政策、产业和市场框架，适合纳入投资候选。内容是作者判断，不是事实核验报告，需 ChatGPT 二次判断证据和风险。</p>
+  </article>
+
+  <article>
+    <h2>19. AI 让非虚构作者处理更复杂材料</h2>
+    <ul>
+      <li>来源平台：即刻</li>
+      <li>作者：MasterPa</li>
+      <li>发布时间：2026-05-21（即刻显示 1天前）</li>
+      <li>原始链接：<a href="https://web.okjike.com/following">https://web.okjike.com/following</a></li>
+      <li>主题分类：AI 写作 / 播客线索</li>
+      <li>置信度：中</li>
+      <li>是否完整读取：否</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：是</li>
+    </ul>
+    <p><strong>摘录：</strong>作者谈《我在远东种大豆》：文章使用多语种材料、录音和录像，AI 让作者能处理更复杂的材料和更艰难选题；他觉得“AI 味儿”争论不如讨论 AI 如何扩大作者野心有价值。动态关联播客《诗梳风》EP18。</p>
+    <p><strong>Codex 初筛理由：</strong>这是重要播客/文章线索，主题与 AI 辅助研究和非虚构创作相关。未打开播客详情，只读到即刻 shownotes 式摘要，建议二次判断是否深听。</p>
+  </article>
+
+  <article>
+    <h2>20. 避免 Vibe Coding 上瘾：每天只做两轮更新</h2>
+    <ul>
+      <li>来源平台：即刻</li>
+      <li>作者：评论尸</li>
+      <li>发布时间：2026-05-21（即刻显示 1天前）</li>
+      <li>原始链接：<a href="https://web.okjike.com/following">https://web.okjike.com/following</a></li>
+      <li>主题分类：AI 编程习惯 / 自我管理</li>
+      <li>置信度：中</li>
+      <li>是否完整读取：否</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：是</li>
+    </ul>
+    <p><strong>摘录：</strong>作者说邸报项目初期陷入发现 bug 就改、想到功能就实现的状态，消耗 Codex 额度且人很累；现在规定每天只做两轮更新，并且必须先实际使用上一轮更新，再开下一轮，把不爽点记到每日 Prompt 暂存。</p>
+    <p><strong>Codex 初筛理由：</strong>这是可直接迁移到 Codex 使用的行为约束：先用、再改、限轮次。比泛泛效率贴更有行动价值，适合二次判断是否纳入个人工作流。</p>
+  </article>
+
+  <article>
+    <h2>21. 大厂复制不是 AI 创业的核心威胁</h2>
+    <ul>
+      <li>来源平台：即刻</li>
+      <li>作者：AGENT橘</li>
+      <li>发布时间：2026-05-21（即刻显示 1天前）</li>
+      <li>原始链接：<a href="https://web.okjike.com/following">https://web.okjike.com/following</a></li>
+      <li>主题分类：AI 创业 / 竞争壁垒</li>
+      <li>置信度：中</li>
+      <li>是否完整读取：否</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：是</li>
+    </ul>
+    <p><strong>摘录：</strong>作者认为很多人担心“字节抄你怎么办”，但 Kimi、MiniMax、智谱、Manus 等例子显示，在增量市场里，大厂做相似产品不必然阻止创业公司上市或融资；真正要看的是新市场扩张和自身定位。</p>
+    <p><strong>Codex 初筛理由：</strong>这条适合用于评估 AI 应用创业的壁垒和竞品焦虑。它是强观点，证据较粗，需要 ChatGPT 二次判断案例是否成立。</p>
+  </article>
+
+  <article>
+    <h2>22. 黄金与美联储加息关系的历史复盘</h2>
+    <ul>
+      <li>来源平台：知识星球</li>
+      <li>作者：黑貔貅</li>
+      <li>发布时间：2026-05-21 08:03 Asia/Shanghai</li>
+      <li>原始链接：<a href="https://wx.zsxq.com/group/28882188541141">https://wx.zsxq.com/group/28882188541141</a></li>
+      <li>主题分类：宏观投资 / 黄金 / 利率</li>
+      <li>置信度：中</li>
+      <li>是否完整读取：否</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：是</li>
+    </ul>
+    <p><strong>摘录：</strong>星球主同步一篇关于“美联储加息，黄金就一定会跌吗？”的深度整理，提示成员参考阅读。结合前后动态看，该星球近期持续关注美债收益率、黄金强势和通胀/利率组合。</p>
+    <p><strong>Codex 初筛理由：</strong>黄金、利率和美元信用是用户投资主线之一。因知识星球和外链文章只做短摘录，不发布全文；建议打开原文确认历史样本和论证质量。</p>
+  </article>
+
+  <article>
+    <h2>23. A 股转平时，个股仍在右侧该按什么纪律处理</h2>
+    <ul>
+      <li>来源平台：知识星球</li>
+      <li>作者：趋势小程序 / NickNie 等问答</li>
+      <li>发布时间：2026-05-21 18:07-21:54 Asia/Shanghai</li>
+      <li>原始链接：<a href="https://wx.zsxq.com/group/88885185558542">https://wx.zsxq.com/group/88885185558542</a></li>
+      <li>主题分类：A 股趋势 / 交易纪律</li>
+      <li>置信度：中</li>
+      <li>是否完整读取：否</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：是</li>
+    </ul>
+    <p><strong>摘录：</strong>趋势小程序星球 5 月 21 日有多条问答围绕行业转平、个股仍在右侧、温转热直接到沸、ETF 信号目录异常。核心答复倾向于“做什么看什么”，按个股或行业预设纪律；温转沸不建议满仓追，可等下一次符合纪律的温转热。</p>
+    <p><strong>Codex 初筛理由：</strong>这是交易系统纪律问题，不是单条新闻。适合 ChatGPT 二次整理为“信号冲突时的操作规则”，但因为属于星球内问答，本候选只保留概括。</p>
+  </article>
+
+  <article>
+    <h2>24. C-REITs ETF 出现后，仍需精选标的而非买指数替代</h2>
+    <ul>
+      <li>来源平台：知识星球</li>
+      <li>作者：起朱楼宴宾客 / 大卫翁等讨论</li>
+      <li>发布时间：2026-05-21 14:36 Asia/Shanghai</li>
+      <li>原始链接：<a href="https://wx.zsxq.com/group/28851128141241">https://wx.zsxq.com/group/28851128141241</a></li>
+      <li>主题分类：REITs / 长期投资</li>
+      <li>置信度：中</li>
+      <li>是否完整读取：否</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：是</li>
+    </ul>
+    <p><strong>摘录：</strong>讨论提到 C-REITs 基金/ETF 相关建仓动作；大卫翁观点是 C-REITs 发展之路还长，海外经验看最佳投资点在熊市中后期，目前溢价率仍缺乏吸引力。评论补充说 C-REITs 基本面恶化较快，不能简单用指数替代精选标的。</p>
+    <p><strong>Codex 初筛理由：</strong>REITs 是长期资产配置话题，信息有行动约束：不因 ETF 出现就默认可买。属于私密星球讨论，需打开原文看上下文和数据。</p>
+  </article>
+
+  <article>
+    <h2>25. 滚雪球 5 月 W2-W3 值得读汇总：资产配置、巴菲特韩国股市、反思周期</h2>
+    <ul>
+      <li>来源平台：知识星球</li>
+      <li>作者：人生是滚雪球的朋友们 / 季夏小助手</li>
+      <li>发布时间：2026-05-21 13:28 Asia/Shanghai</li>
+      <li>原始链接：<a href="https://wx.zsxq.com/group/452442854428">https://wx.zsxq.com/group/452442854428</a></li>
+      <li>主题分类：长期投资 / 阅读清单</li>
+      <li>置信度：中</li>
+      <li>是否完整读取：否</li>
+      <li>是否建议 ChatGPT 二次判断：是</li>
+      <li>是否可能需要我打开原文：是</li>
+    </ul>
+    <p><strong>摘录：</strong>星球内汇总两周值得读长文，提到资产配置帮助人从单一判断中解放；巴菲特与韩国股市案例强调质量和估值的性价比；还有关于“想法也会被周期愚弄”的反思文章。</p>
+    <p><strong>Codex 初筛理由：</strong>这是投资阅读入口，不是一条具体结论。适合 ChatGPT 二次判断哪篇值得打开、哪篇只需知道结论；因星球内容边界，只保留概括。</p>
+  </article>
 
   <h2>默认过滤</h2>
   <ul>
